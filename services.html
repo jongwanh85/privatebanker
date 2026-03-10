@@ -193,16 +193,15 @@
     .service-header.reverse { direction: rtl; }
     .service-header.reverse > * { direction: ltr; }
 
+    /* ★ 겹침 현상 해결: margin-bottom을 양수로 변경하여 여백 확보 */
     .service-number {
       font-family: 'Cormorant Garamond', serif;
       font-size: 5rem;
       font-weight: 600;
       color: var(--gold-light);
       line-height: 1;
-      margin-bottom: -1rem;
+      margin-bottom: 0.5rem; /* 기존 -1rem에서 0.5rem으로 변경 */
       display: block;
-      position: relative;
-      z-index: -1;
     }
     .service-eyebrow {
       font-size: 0.75rem;
@@ -275,15 +274,15 @@
       margin-top: 0.55rem;
     }
 
-    /* ★ 프로세스 (진행방식, 흐름) 타이틀 & 숫자 가시성 상향 */
+    /* PROCESS STEPS */
     .process-section {
       margin-top: 4rem;
     }
     .process-title {
-      font-size: 0.9rem; /* 크기 상향 */
-      font-weight: 600;  /* 굵기 상향 */
+      font-size: 0.9rem; 
+      font-weight: 600;  
       letter-spacing: 0.2em;
-      color: var(--gold-light); /* 더 밝은 색으로 변경 */
+      color: var(--gold-light); 
       text-transform: uppercase;
       margin-bottom: 2rem;
     }
@@ -300,9 +299,9 @@
     }
     .step-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;     /* 크기 상향 */
-      font-weight: 600;    /* 굵기 상향 */
-      color: var(--gold-light); /* 투명도 0%, 밝은 금색 100% 적용 */
+      font-size: 2rem;     
+      font-weight: 600;    
+      color: var(--gold-light); 
       display: block;
       margin-bottom: 0.8rem;
     }
@@ -350,15 +349,15 @@
     }
     .mini-review-author span { color: var(--gold-light); font-weight: 500; }
 
-    /* ★ COMPARISON TABLE (일반 상담 vs 한종완 Private Banker) */
+    /* COMPARISON TABLE */
     .compare-section {
       margin-top: 4rem;
     }
     .compare-title {
-      font-size: 0.9rem; /* 크기 상향 */
-      font-weight: 600;  /* 굵기 상향 */
+      font-size: 0.9rem; 
+      font-weight: 600;  
       letter-spacing: 0.2em;
-      color: var(--gold-light); /* 밝은 색으로 변경 */
+      color: var(--gold-light); 
       text-transform: uppercase;
       margin-bottom: 1.5rem;
     }
