@@ -43,7 +43,6 @@
   body {
     background: var(--dark);
     color: var(--light);
-    /* 기본 폰트 굵기를 300(Light)에서 400(Regular)로 상향하여 가독성 개선 */
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 400;
     overflow-x: hidden;
@@ -60,8 +59,8 @@
   }
   .nav-logo {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; /* 로고 크기 상향 */
-    font-weight: 600; /* 로고 굵기 상향 */
+    font-size: 22px; 
+    font-weight: 600; 
     letter-spacing: 0.15em;
     color: var(--gold-light);
   }
@@ -71,10 +70,10 @@
     list-style: none;
   }
   .nav-links a {
-    color: #d0ccc6; /* 기존 #9a9a9a 에서 더 밝은 톤으로 변경 */
+    color: #d0ccc6; 
     text-decoration: none;
-    font-size: 14px; /* 글씨 크기 12px -> 14px 상향 */
-    font-weight: 400; /* 굵기 상향 */
+    font-size: 14px; 
+    font-weight: 400; 
     letter-spacing: 0.15em;
     text-transform: uppercase;
     transition: color 0.3s;
@@ -151,14 +150,14 @@
     font-family: 'Noto Serif KR', serif;
     font-size: 17px;
     font-weight: 400;
-    color: #c0bab0; /* 더 밝게 개선 */
+    color: #c0bab0; 
     letter-spacing: 0.08em;
     margin-bottom: 48px;
   }
   .hero-desc {
     font-size: 15px;
     line-height: 2;
-    color: #e8e4dc; /* 가독성 상향 */
+    color: #e8e4dc; 
     max-width: 440px;
     margin-bottom: 56px;
   }
@@ -175,28 +174,35 @@
     line-height: 1;
   }
   .stat-label {
-    font-size: 13px; /* 11px -> 13px 상향 */
-    color: #c0bab0; /* 밝기 상향 */
+    font-size: 13px; 
+    color: #c0bab0; 
     font-weight: 400;
     letter-spacing: 0.08em;
     margin-top: 6px;
   }
+  
+  /* 버튼 가시성 및 디자인 대폭 상향 */
   .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 14px;
-    background: var(--gold);
-    color: var(--dark);
+    background: var(--gold-light); /* 더 밝은 황금색으로 변경 */
+    color: var(--dark-2); /* 글씨는 어둡게 하여 대비 효과 */
     padding: 18px 40px;
-    font-size: 14px; /* 버튼 글씨 상향 */
+    font-size: 15px; /* 글씨 크기 상향 */
     letter-spacing: 0.15em;
     text-transform: uppercase;
     text-decoration: none;
-    font-weight: 600; /* 버튼 글씨를 확실히 굵게 */
+    font-weight: 600; 
+    box-shadow: 0 4px 20px rgba(212, 175, 90, 0.3); /* 은은한 빛번짐 효과 추가 */
     transition: all 0.3s;
     font-family: 'Noto Sans KR', sans-serif;
   }
-  .btn-primary:hover { background: var(--gold-light); gap: 20px; }
+  .btn-primary:hover { 
+    background: #e6c884; /* 마우스 올렸을 때 더욱 화사하게 */
+    box-shadow: 0 6px 25px rgba(212, 175, 90, 0.5); /* 그림자 효과 강화 */
+    gap: 20px; 
+  }
   .btn-primary svg { transition: transform 0.3s; }
   .btn-primary:hover svg { transform: translateX(4px); }
   
@@ -312,12 +318,12 @@
   .service-card:hover::before { transform: scaleX(1); }
   .service-card:hover::after { color: var(--gold-light); transform: translateX(4px); }
   
+  /* 서비스 01, 02, 03 숫자 가시성 대폭 상향 */
   .service-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 48px;
-    font-weight: 400;
-    /* 투명도를 0.15에서 0.45로 대폭 올려 확실히 보이게 수정 */
-    color: rgba(184,151,58,0.45); 
+    font-size: 52px; /* 크기 상향 */
+    font-weight: 600; /* 굵기 상향 */
+    color: var(--gold-light); /* 투명도 완전히 제거, 밝은 금색 100% 적용 */
     line-height: 1;
     margin-bottom: 32px;
   }
@@ -341,14 +347,13 @@
     margin-top: 24px;
   }
   .tag {
-    /* 작은 네모 박스 안의 글씨 가시성 대폭 상향 */
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.1em;
     padding: 6px 14px;
-    border: 1px solid rgba(184,151,58,0.5); /* 테두리 선명하게 */
-    background: rgba(184,151,58,0.1); /* 배경에 옅은 금색 추가 */
-    color: var(--gold-light); /* 더 밝은 톤의 글씨 */
+    border: 1px solid rgba(184,151,58,0.5); 
+    background: rgba(184,151,58,0.1); 
+    color: var(--gold-light); 
   }
   
   .section-more {
@@ -377,10 +382,13 @@
     background: rgba(184,151,58,0.1);
   }
   .testimonial-card { background: var(--dark-2); padding: 48px 40px; }
+  
+  /* 고객 후기 따옴표 가시성 대폭 상향 */
   .quote-mark {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 72px;
-    color: rgba(184,151,58,0.3);
+    font-size: 76px; /* 크기 약간 상향 */
+    font-weight: 600; /* 굵기 상향 */
+    color: var(--gold-light); /* 투명도 완전히 제거, 밝은 금색 100% 적용 */
     line-height: 0.8;
     margin-bottom: 24px;
   }
