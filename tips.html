@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>재무 산책 & 인사이트 · 한종완 자산관리</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -18,7 +18,8 @@
       --text-muted: #c0bab0;
       --border: rgba(184,151,58,0.2);
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ★ 한국어 단어 끊김 방지 적용 */
+    * { margin: 0; padding: 0; box-sizing: border-box; word-break: keep-all; overflow-wrap: break-word; }
     body {
       background: var(--dark);
       color: var(--text);
@@ -27,7 +28,6 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -59,7 +59,6 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
 
-    /* HERO */
     .hero {
       min-height: 46vh;
       display: flex;
@@ -114,7 +113,6 @@
       animation: fadeUp 0.7s 0.65s forwards;
     }
 
-    /* CHANNEL BANNER */
     .channel-banner {
       max-width: 860px;
       margin: 0 auto 1rem;
@@ -170,7 +168,6 @@
     }
     .btn-subscribe:hover { background: #e6c884; transform: translateY(-2px); }
 
-    /* ARTICLES SECTION */
     .articles-section {
       max-width: 1200px;
       margin: 0 auto;
@@ -194,7 +191,6 @@
     }
     .section-title em { font-style: italic; color: var(--gold-light); }
 
-    /* ARTICLE CARDS */
     .articles-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -253,7 +249,6 @@
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
-    
     .article-title {
       font-family: 'Noto Serif KR', serif;
       font-size: 1.25rem;
@@ -291,7 +286,6 @@
     }
     .article-card:hover .read-more { gap: 10px; }
 
-    /* CTA */
     .cta-section {
       text-align: center;
       padding: 4rem 2rem 6rem;
@@ -336,17 +330,31 @@
 
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* ★ 모바일 반응형 처리 (메뉴 숨김 해제 및 정렬 수정) ★ */
+    /* ★ 모바일 반응형 처리 */
     @media (max-width: 600px) {
-      nav { padding: 1rem 1.5rem; flex-direction: column; gap: 0.8rem; background: rgba(14,14,14,0.98); }
-      .nav-links { 
-        display: flex; /* 숨김(none) 처리 해제! */
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 1rem; 
-      }
-      .nav-links a { font-size: 0.8rem; }
-      .channel-inner { flex-wrap: wrap; }
+      nav { padding: 15px 20px; flex-direction: column; gap: 10px; align-items: center; background: rgba(14,14,14,0.98); }
+      .nav-logo { margin-bottom: 5px; }
+      .nav-links { display: flex; width: 100%; justify-content: center; gap: 14px; flex-wrap: wrap; }
+      .nav-links a { font-size: 12px; }
+      
+      .hero { padding: 100px 20px 40px; }
+      .hero h1 { font-size: 28px; line-height: 1.4; margin-bottom: 15px; }
+      .hero p { font-size: 14px; }
+      
+      .channel-banner { padding: 0 20px; }
+      .channel-inner { flex-direction: column; text-align: center; gap: 15px; padding: 25px 20px; }
+      .channel-name { font-size: 16px; }
+      .channel-handle { font-size: 12px; }
+      
+      .articles-section { padding: 40px 20px 60px; }
+      .section-title { font-size: 24px; }
+      .articles-grid { grid-template-columns: 1fr; gap: 30px; }
+      .article-info { padding: 25px 20px; }
+      .article-title { font-size: 18px; }
+      .article-desc { font-size: 14px; }
+      
+      .cta-section { padding: 60px 20px; }
+      .cta-section h2 { font-size: 24px; }
     }
   </style>
 </head>
@@ -388,7 +396,6 @@
   <h2 class="section-title">금융 인사이트, <em>직접 확인해보세요</em></h2>
 
   <div class="articles-grid">
-
     <a href="https://theviewers.co.kr/View.aspx?No=4016722" target="_blank" class="article-card">
       <div class="article-thumb">
         <img src="thumb_column1.jpg" alt="RIA 계좌 칼럼 썸네일">
@@ -418,7 +425,6 @@
         </div>
       </div>
     </a>
-
   </div>
 </section>
 
