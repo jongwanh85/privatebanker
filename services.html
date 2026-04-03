@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>서비스 소개 · 한종완 자산관리</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
@@ -18,7 +18,8 @@
       --text-muted: #c0bab0;
       --border: rgba(184,151,58,0.2);
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ★ 한국어 단어 끊김 방지 적용 */
+    * { margin: 0; padding: 0; box-sizing: border-box; word-break: keep-all; overflow-wrap: break-word; }
     body {
       background: var(--dark);
       color: var(--text);
@@ -27,7 +28,6 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -59,7 +59,6 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
 
-    /* HERO */
     .hero {
       min-height: 52vh;
       display: flex;
@@ -76,14 +75,6 @@
       position: absolute;
       inset: 0;
       background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(184,151,58,0.07) 0%, transparent 70%);
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 1px;
-      height: 100%;
-      background: linear-gradient(to bottom, transparent, rgba(184,151,58,0.2), transparent);
     }
     .hero-label {
       font-size: 0.75rem;
@@ -114,7 +105,6 @@
       animation: fadeUp 0.7s 0.5s forwards;
     }
 
-    /* SERVICE NAV ANCHORS */
     .service-nav {
       display: flex;
       justify-content: center;
@@ -144,7 +134,6 @@
       border-bottom-color: var(--gold-light);
     }
 
-    /* INTRO STRIP */
     .intro-strip {
       max-width: 900px;
       margin: 5rem auto 0;
@@ -161,9 +150,6 @@
       opacity: 0;
       animation: fadeUp 0.6s forwards;
     }
-    .intro-item:nth-child(1) { animation-delay: 0.1s; }
-    .intro-item:nth-child(2) { animation-delay: 0.2s; }
-    .intro-item:nth-child(3) { animation-delay: 0.3s; }
     .intro-num {
       font-family: 'Cormorant Garamond', serif;
       font-size: 2.8rem;
@@ -174,7 +160,6 @@
     }
     .intro-label { font-size: 0.85rem; font-weight: 400; color: #c0bab0; letter-spacing: 0.05em; }
 
-    /* SERVICE BLOCK */
     .service-block {
       max-width: 1100px;
       margin: 0 auto;
@@ -226,9 +211,7 @@
       font-weight: 400;
     }
 
-    .service-visual {
-      position: relative;
-    }
+    .service-visual { position: relative; }
     .service-box {
       background: var(--dark-2);
       border: 1px solid var(--border);
@@ -273,10 +256,7 @@
       margin-top: 0.55rem;
     }
 
-    /* PROCESS STEPS */
-    .process-section {
-      margin-top: 4rem;
-    }
+    .process-section { margin-top: 4rem; }
     .process-title {
       font-size: 0.9rem; 
       font-weight: 600;  
@@ -291,11 +271,7 @@
       gap: 1px;
       background: var(--border);
     }
-    .step {
-      background: var(--dark);
-      padding: 2rem 1.5rem;
-      position: relative;
-    }
+    .step { background: var(--dark); padding: 2rem 1.5rem; position: relative; }
     .step-num {
       font-family: 'Cormorant Garamond', serif;
       font-size: 2rem;     
@@ -304,15 +280,9 @@
       display: block;
       margin-bottom: 0.8rem;
     }
-    .step-name {
-      font-size: 0.9rem;
-      color: var(--white);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
+    .step-name { font-size: 0.9rem; color: var(--white); font-weight: 600; margin-bottom: 0.5rem; }
     .step-desc { font-size: 0.8rem; color: #c0bab0; line-height: 1.65; }
 
-    /* MINI REVIEW */
     .mini-review {
       margin-top: 3.5rem;
       background: var(--dark-3);
@@ -348,10 +318,7 @@
     }
     .mini-review-author span { color: var(--gold-light); font-weight: 500; }
 
-    /* COMPARISON TABLE */
-    .compare-section {
-      margin-top: 4rem;
-    }
+    .compare-section { margin-top: 4rem; }
     .compare-title {
       font-size: 0.9rem; 
       font-weight: 600;  
@@ -360,11 +327,7 @@
       text-transform: uppercase;
       margin-bottom: 1.5rem;
     }
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
     .compare-table th {
       padding: 1rem 1.2rem;
       text-align: left;
@@ -376,30 +339,12 @@
       border-bottom: 1px solid var(--border);
     }
     .compare-table th.highlight { color: var(--gold-light); }
-    .compare-table td {
-      padding: 1.2rem 1.2rem;
-      border-bottom: 1px solid var(--border);
-      color: #e8e4dc;
-      vertical-align: middle;
-    }
+    .compare-table td { padding: 1.2rem 1.2rem; border-bottom: 1px solid var(--border); color: #e8e4dc; vertical-align: middle; }
     .compare-table tr:last-child td { border-bottom: none; }
-    .compare-table td.highlight {
-      color: var(--white);
-      font-weight: 500;
-    }
+    .compare-table td.highlight { color: var(--white); font-weight: 500; }
     .check { color: var(--gold-light); font-size: 1.1rem; font-weight: 600;}
     .cross { color: #666; font-size: 1.1rem; }
 
-    /* DIVIDER */
-    .section-divider {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* CTA */
     .cta-section {
       text-align: center;
       padding: 7rem 2rem 8rem;
@@ -479,21 +424,45 @@
 
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    @media (max-width: 860px) {
-      .service-header { grid-template-columns: 1fr; gap: 3rem; }
-      .service-header.reverse { direction: ltr; }
-      .steps { grid-template-columns: repeat(2, 1fr); }
-      .intro-strip { grid-template-columns: 1fr; gap: 1px; }
-      .service-nav a { padding: 1rem 1.2rem; font-size: 0.75rem; }
-    }
-    
-    /* ★ 모바일 반응형 처리 (메뉴 숨김 해제) ★ */
+    /* ★ 모바일 반응형 처리 */
     @media (max-width: 600px) {
-      nav { padding: 1rem 1.5rem; flex-direction: column; gap: 0.8rem; background: rgba(14,14,14,0.98); }
-      .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
-      .nav-links a { font-size: 0.8rem; }
+      nav { padding: 15px 20px; flex-direction: column; gap: 10px; align-items: center; background: rgba(14,14,14,0.98); }
+      .nav-logo { margin-bottom: 5px; }
+      .nav-links { display: flex; width: 100%; justify-content: center; gap: 14px; flex-wrap: wrap; }
+      .nav-links a { font-size: 12px; }
+      
+      .hero { padding: 100px 20px 40px; }
+      .hero h1 { font-size: 28px; line-height: 1.4; margin-bottom: 20px; }
+      .hero p { font-size: 14px; }
+      
+      .service-nav { justify-content: flex-start; overflow-x: auto; padding: 0 10px; }
+      .service-nav a { padding: 15px 15px; font-size: 13px; }
+      
+      .intro-strip { grid-template-columns: 1fr; gap: 1px; margin-top: 2rem; }
+      .intro-num { font-size: 26px; }
+      
+      .service-block { padding: 50px 20px; }
+      .service-header { grid-template-columns: 1fr; gap: 30px; margin-bottom: 30px; }
+      .service-header.reverse { direction: ltr; }
+      
+      .service-number { font-size: 40px; }
+      .service-title { font-size: 24px; }
+      .service-desc { font-size: 14px; }
+      .service-box { padding: 20px; }
+      .service-list li { font-size: 13px; }
+      
       .steps { grid-template-columns: 1fr; }
-      .service-nav { overflow-x: auto; justify-content: flex-start; }
+      .step { padding: 20px; }
+      
+      .mini-review { padding: 20px; margin-top: 2rem; }
+      .mini-review::before { font-size: 50px; top: 0; left: 10px; }
+      .mini-review-text { font-size: 14px; padding-left: 0; padding-top: 10px; }
+      .mini-review-author { padding-left: 0; }
+      
+      .compare-table th, .compare-table td { padding: 15px 10px; font-size: 12px; }
+      
+      .cta-section { padding: 60px 20px; }
+      .cta-section h2 { font-size: 24px; }
     }
   </style>
 </head>
@@ -541,10 +510,8 @@
   </div>
 </div>
 
-
 <section class="service-block" id="diagnosis">
   <div class="service-header">
-
     <div class="service-meta">
       <span class="service-number">01</span>
       <div class="service-eyebrow">Financial Diagnosis</div>
@@ -556,7 +523,6 @@
         단기 목표부터 은퇴까지, VIP 맞춤형 로드맵으로 정리해드립니다.
       </p>
     </div>
-
     <div class="service-visual">
       <div class="service-box">
         <div class="service-box-title">포함 내용</div>
@@ -606,10 +572,8 @@
   </div>
 </section>
 
-
 <section class="service-block" id="investment">
   <div class="service-header reverse">
-
     <div class="service-meta">
       <span class="service-number">02</span>
       <div class="service-eyebrow">Investment Consulting</div>
@@ -621,7 +585,6 @@
         이해하지 못한 상품에는 가입하지 않는 것이 저의 철칙입니다.
       </p>
     </div>
-
     <div class="service-visual">
       <div class="service-box">
         <div class="service-box-title">다루는 상품군</div>
@@ -685,10 +648,8 @@
   </div>
 </section>
 
-
 <section class="service-block" id="tax">
   <div class="service-header">
-
     <div class="service-meta">
       <span class="service-number">03</span>
       <div class="service-eyebrow">Tax Strategy</div>
@@ -700,7 +661,6 @@
         모르면 내야 하고, 알면 아낄 수 있는 세금, 꼼꼼하게 챙겨드립니다.
       </p>
     </div>
-
     <div class="service-visual">
       <div class="service-box">
         <div class="service-box-title">절세 항목</div>
@@ -750,7 +710,6 @@
   </div>
 </section>
 
-
 <section class="cta-section">
   <div class="cta-eyebrow">First Consultation Free</div>
   <h2>어떤 서비스가 필요한지<br /><em>모르셔도 됩니다</em></h2>
@@ -770,7 +729,6 @@
 </footer>
 
 <script>
-  // Active nav highlight on scroll
   const sections = document.querySelectorAll('.service-block');
   const navLinks = document.querySelectorAll('.service-nav a');
   window.addEventListener('scroll', () => {
