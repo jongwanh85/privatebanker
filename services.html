@@ -193,14 +193,13 @@
     .service-header.reverse { direction: rtl; }
     .service-header.reverse > * { direction: ltr; }
 
-    /* ★ 겹침 현상 해결: margin-bottom을 양수로 변경하여 여백 확보 */
     .service-number {
       font-family: 'Cormorant Garamond', serif;
       font-size: 5rem;
       font-weight: 600;
       color: var(--gold-light);
       line-height: 1;
-      margin-bottom: 0.5rem; /* 기존 -1rem에서 0.5rem으로 변경 */
+      margin-bottom: 0.5rem;
       display: block;
     }
     .service-eyebrow {
@@ -487,9 +486,12 @@
       .intro-strip { grid-template-columns: 1fr; gap: 1px; }
       .service-nav a { padding: 1rem 1.2rem; font-size: 0.75rem; }
     }
+    
+    /* ★ 모바일 반응형 처리 (메뉴 숨김 해제) ★ */
     @media (max-width: 600px) {
-      nav { padding: 1.2rem 1.5rem; }
-      .nav-links { display: none; }
+      nav { padding: 1rem 1.5rem; flex-direction: column; gap: 0.8rem; background: rgba(14,14,14,0.98); }
+      .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+      .nav-links a { font-size: 0.8rem; }
       .steps { grid-template-columns: 1fr; }
       .service-nav { overflow-x: auto; justify-content: flex-start; }
     }
@@ -503,7 +505,7 @@
     <li><a href="index.html#about">소개</a></li>
     <li><a href="services.html" class="active">서비스</a></li>
     <li><a href="reviews.html">후기</a></li>
-    <li><a href="tips.html">재테크 팁</a></li>
+    <li><a href="index.html#tips">재테크 팁</a></li>
     <li><a href="consult.html">상담 신청</a></li>
   </ul>
 </nav>
