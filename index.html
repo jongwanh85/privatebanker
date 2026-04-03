@@ -436,6 +436,94 @@
   }
   .author-name { font-size: 14px; color: var(--white); font-weight: 500; }
   .author-desc { font-size: 12px; color: #c0bab0; margin-top: 4px; }
+
+  /* ★ 메인 화면에 추가된 재테크 팁(칼럼) 섹션 CSS */
+  .articles-section { background: var(--dark); }
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  .article-card {
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    color: inherit;
+  }
+  .article-card:hover {
+    border-color: rgba(212, 175, 90, 0.5);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  .article-thumb {
+    height: 200px;
+    background: var(--dark-3); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .article-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.4s;
+  }
+  .article-card:hover .article-thumb img { transform: scale(1.05); }
+  .article-info {
+    padding: 2rem 1.8rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .article-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .article-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--gold-light); 
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+  }
+  .article-card:hover .article-title { color: var(--white); }
+  .article-desc {
+    font-size: 0.95rem;
+    color: #b0aba1;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    flex: 1;
+  }
+  .article-meta {
+    font-size: 0.85rem;
+    color: #888;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 1.2rem;
+  }
+  .read-more {
+    color: var(--gold-light);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.3s;
+  }
+  .article-card:hover .read-more { gap: 10px; }
   
   .cta {
     background: var(--dark-3);
@@ -491,7 +579,6 @@
   .footer-nav a:hover { color: var(--gold-light); }
   .footer-copy { font-size: 12px; color: #9a9a9a; letter-spacing: 0.05em; }
   
-  /* ★ 모바일 반응형 처리 (메뉴 숨김 해제 및 정렬 수정) ★ */
   @media (max-width: 1000px) {
     .hero { padding: 120px 30px 60px; display: flex; align-items: flex-start; }
     .hero-container { 
@@ -509,21 +596,16 @@
   @media (max-width: 900px) {
     nav { padding: 15px 20px; flex-direction: column; gap: 10px; align-items: center; background: rgba(14,14,14,0.98); }
     .nav-logo { margin-bottom: 5px; }
-    .nav-links { 
-      display: flex; /* 숨김(none) 처리 해제! */
-      width: 100%; 
-      justify-content: center; 
-      gap: 18px; 
-      flex-wrap: wrap; 
-    }
+    .nav-links { display: flex; width: 100%; justify-content: center; gap: 18px; flex-wrap: wrap; }
     .nav-links a { font-size: 13px; }
     section { padding: 80px 30px; }
     .about-grid { grid-template-columns: 1fr; gap: 50px; }
     .services-grid { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
+    .articles-grid { grid-template-columns: 1fr; }
     .hero-stats { justify-content: center; flex-wrap: wrap; gap: 32px; }
     footer { flex-direction: column; gap: 20px; padding: 40px 30px; text-align: center; }
-    .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; } /* 하단 메뉴 숨김 해제! */
+    .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; } 
     .cta { padding: 80px 30px; }
   }
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
@@ -538,8 +620,7 @@
     <li><a href="#about">소개</a></li>
     <li><a href="services.html">서비스</a></li>
     <li><a href="reviews.html">후기</a></li>
-    <li><a href="tips.html">재테크 팁</a></li>
-    <li><a href="consult.html">상담 신청</a></li>
+    <li><a href="#tips">재테크 팁</a></li> <li><a href="consult.html">상담 신청</a></li>
   </ul>
 </nav>
 
@@ -680,6 +761,48 @@
   </div>
   <div class="section-more">
     <a href="reviews.html">후기 전체 보기 <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="articles-section" id="tips">
+  <div class="section-label">Finance Tips</div>
+  <h2 class="section-title">재무 산책 & <em>인사이트</em></h2>
+
+  <div class="articles-grid reveal">
+    <a href="https://theviewers.co.kr/View.aspx?No=4016722" target="_blank" class="article-card">
+      <div class="article-thumb">
+        <img src="thumb_column1.jpg" alt="RIA 계좌 칼럼 썸네일">
+      </div>
+      <div class="article-info">
+        <div class="article-tag">자산관리와 절세</div>
+        <h3 class="article-title">RIA 계좌, 복귀 전에 점검할 3가지</h3>
+        <p class="article-desc">해외주식을 팔고 국내 주식으로 돌아오면 양도세를 감면해 주는 RIA 계좌. 100% 비과세라는 달콤한 혜택 이면에 숨은 환율 변수와 리스크를 점검해 드립니다.</p>
+        <div class="article-meta">
+          <span>뷰어스 · 2026.03.25</span>
+          <span class="read-more">칼럼 읽기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://theviewers.co.kr/View.aspx?No=4001779" target="_blank" class="article-card">
+      <div class="article-thumb">
+        <img src="thumb_column2.jpg" alt="은퇴절세 칼럼 썸네일">
+      </div>
+      <div class="article-info">
+        <div class="article-tag">자산관리와 절세</div>
+        <h3 class="article-title">꼭 챙겨야 할 3가지 은퇴·절세 상품</h3>
+        <p class="article-desc">소득 크레바스를 앞둔 40대의 은퇴 골든타임. 연금계좌 활용부터 ISA 만기 시너지까지, 막연한 불안감을 든든한 노후 자산으로 바꿔줄 필수 절세 세팅법을 공개합니다.</p>
+        <div class="article-meta">
+          <span>뷰어스 · 2026.03.12</span>
+          <span class="read-more">칼럼 읽기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="section-more reveal">
+    <a href="tips.html">칼럼 전체 보기 <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
 </section>
 
