@@ -78,7 +78,6 @@
   }
   .nav-links a:hover { color: var(--gold-light); }
   
-  /* 메인 Hero 섹션 (사진 레이아웃 및 이질감 해결) */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -123,25 +122,17 @@
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end; /* 사진을 바닥에 밀착 */
+    align-items: flex-end;
     opacity: 0;
     animation: fadeIn 1.5s 0.4s ease forwards;
-    position: relative;
-    padding-bottom: 0; /* 바닥 여백 제거 */
   }
-
-  /* ★ 이질감 해결의 핵심: 사진 상/하/좌/우 마스크 그라데이션 적용 */
+  /* profile.png 적용 및 하단 그라데이션 마스크 */
   .hero-image img {
     max-width: 100%;
     max-height: 85vh;
     object-fit: contain;
-    /* 하단은 부드럽게 섞이고, 상단과 측면의 경계선도 은은하게 지워주는 마스크 효과 */
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%),
-                        linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-    mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%),
-                linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-    -webkit-mask-composite: source-in;
-    mask-composite: intersect;
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   }
 
   @keyframes heroReveal {
@@ -501,7 +492,6 @@
   .footer-nav a:hover { color: var(--gold-light); }
   .footer-copy { font-size: 12px; color: #9a9a9a; letter-spacing: 0.05em; }
   
-  /* 반응형 처리 */
   @media (max-width: 1000px) {
     .hero { padding: 120px 30px 60px; display: flex; align-items: flex-start; }
     .hero-container { 
@@ -511,7 +501,7 @@
     }
     .hero-content { display: flex; flex-direction: column; align-items: center; max-width: 100%; }
     .hero-eyebrow { justify-content: center; }
-    .hero-image { justify-content: center; width: 100%; align-items: flex-start; /* 모바일에서는 상단에 밀착 */}
+    .hero-image { justify-content: center; width: 100%; align-items: flex-start; }
     .hero-image img { max-height: 50vh; }
     .hero-line { display: none; }
   }
@@ -578,7 +568,7 @@
       </a>
     </div>
     <div class="hero-image">
-      <img src="profile.jpg" alt="한종완 Private Banker">
+      <img src="profile.png" alt="한종완 Private Banker">
     </div>
   </div>
 </section>
