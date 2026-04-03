@@ -18,7 +18,6 @@
       --text-muted: #c0bab0;
       --border: rgba(184,151,58,0.2);
     }
-    /* ★ 한국어 단어 끊김 방지 적용 */
     * { margin: 0; padding: 0; box-sizing: border-box; word-break: keep-all; overflow-wrap: break-word; }
     body {
       background: var(--dark);
@@ -356,6 +355,7 @@
       position: absolute;
       inset: 0;
       background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(184,151,58,0.06) 0%, transparent 70%);
+      pointer-events: none; /* ★ 배경 효과 클릭 방지 투명막 처리 완료 ★ */
     }
     .cta-eyebrow {
       font-size: 0.75rem;
@@ -380,7 +380,12 @@
       max-width: 480px;
       margin: 0 auto 3rem;
     }
-    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    
+    /* ★ 버튼이 최상단으로 오도록 z-index 부여 완료 ★ */
+    .cta-buttons { 
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; 
+      position: relative; z-index: 10; 
+    }
     
     .btn-gold {
       display: inline-block;
@@ -424,7 +429,6 @@
 
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* ★ 모바일 반응형 처리 */
     @media (max-width: 600px) {
       nav { padding: 15px 20px; flex-direction: column; gap: 10px; align-items: center; background: rgba(14,14,14,0.98); }
       .nav-logo { margin-bottom: 5px; }
