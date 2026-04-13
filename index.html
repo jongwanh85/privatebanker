@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>한종완 · PB 팀장</title>
+<title>한종완 · Private Banker Team Leader</title>
 
-<meta name="description" content="복잡한 금융을 쉽게, 당신의 자산이 당신을 위해 일하도록. 핀사이트 랩스 PB 팀장 한종완의 1:1 맞춤 재무 컨설팅.">
+<meta name="description" content="복잡한 금융을 쉽게, 당신의 자산이 당신을 위해 일하도록. 핀사이트 랩스 Private Banker Team Leader 한종완의 1:1 맞춤 재무 컨설팅.">
 <meta property="og:type"        content="website">
-<meta property="og:title"       content="한종완 · PB 팀장">
+<meta property="og:title"       content="한종완 · Private Banker Team Leader">
 <meta property="og:description" content="복잡한 금융을 쉽게, 깊이 있는 통찰로 1:1 맞춤 재무 로드맵을 설계합니다.">
 <meta property="og:url"         content="https://jongwanh85.github.io/privatebanker/">
 <meta property="og:image"       content="https://jongwanh85.github.io/privatebanker/og-image.png">
@@ -15,11 +15,11 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale"      content="ko_KR">
 <meta property="og:site_name"   content="한종완 자산관리 컨설팅">
-<meta property="kakao:title"       content="한종완 · PB 팀장">
+<meta property="kakao:title"       content="한종완 · Private Banker Team Leader">
 <meta property="kakao:description" content="복잡한 금융을 쉽게, 깊이 있는 통찰로 맞춤 재무 로드맵을 설계합니다.">
 <meta property="kakao:image"       content="https://jongwanh85.github.io/privatebanker/og-image.png">
 <meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="한종완 · PB 팀장">
+<meta name="twitter:title"       content="한종완 · Private Banker Team Leader">
 <meta name="twitter:description" content="복잡한 금융을 쉽게, 깊이 있는 통찰로 맞춤 재무 로드맵을 설계합니다.">
 <meta name="twitter:image"       content="https://jongwanh85.github.io/privatebanker/og-image.png">
 
@@ -37,7 +37,6 @@
     --white: #FDFAF5;
   }
   
-  /* 전역 설정: 한국어 단어 끊김 방지 */
   * { margin: 0; padding: 0; box-sizing: border-box; word-break: keep-all; overflow-wrap: break-word; }
   html { scroll-behavior: smooth; }
   body {
@@ -478,6 +477,19 @@
     object-fit: cover; 
     transition: transform 0.4s;
   }
+  /* 유튜브 영상 카드를 위한 재생 아이콘 효과 */
+  .article-card.video .article-thumb::after {
+    content: '▶';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: rgba(255,255,255,0.8);
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s, color 0.3s;
+  }
+  .article-card.video:hover .article-thumb::after { transform: translate(-50%, -50%) scale(1.2); color: #fff; }
+
   .article-card:hover .article-thumb img { transform: scale(1.05); }
   .article-info {
     padding: 2rem 1.8rem;
@@ -583,7 +595,6 @@
   .footer-nav a:hover { color: var(--gold-light); }
   .footer-copy { font-size: 12px; color: #9a9a9a; letter-spacing: 0.05em; }
   
-  /* 태블릿 반응형 (1000px 이하) */
   @media (max-width: 1000px) {
     .hero { padding: 120px 30px 60px; display: flex; align-items: flex-start; }
     .hero-container { 
@@ -598,7 +609,6 @@
     .hero-line { display: none; }
   }
 
-  /* ★ 모바일 완벽 최적화 (600px 이하 스마트폰 화면 전용) ★ */
   @media (max-width: 600px) {
     nav { padding: 15px 20px; flex-direction: column; gap: 10px; align-items: center; background: rgba(14,14,14,0.98); }
     .nav-logo { margin-bottom: 5px; }
@@ -607,30 +617,21 @@
     
     section { padding: 70px 20px; }
     .section-title { font-size: 28px; margin-bottom: 40px; }
-    
-    /* 1. 메인 텍스트 및 숫자 여백 찌그러짐 방지 */
     .hero-title { font-size: 15px; margin-bottom: 30px; line-height: 1.5; }
     .hero-desc { font-size: 14px; margin-bottom: 40px; }
-    .hero-stats { 
-      gap: 15px; /* 숫자 사이 간격 대폭 축소 */
-      justify-content: center; 
-      width: 100%;
-    }
-    .stat-item { flex: 1 1 30%; /* 3개가 나란히 예쁘게 들어가도록 비율 설정 */ }
-    .stat-num { font-size: 26px; } /* 숫자 크기 축소 */
-    .stat-label { font-size: 11px; margin-top: 4px; } /* 글씨 크기 축소 */
+    .hero-stats { gap: 15px; justify-content: center; width: 100%; }
+    .stat-item { flex: 1 1 30%; }
+    .stat-num { font-size: 24px; }
+    .stat-label { font-size: 11px; margin-top: 4px; }
     
-    /* 2. 소개(About) 섹션 텍스트 줄바꿈 및 크기 조절 */
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .career-item { grid-template-columns: 70px 1fr; gap: 15px; } /* 좌측 연도 여백 축소 */
+    .career-item { grid-template-columns: 70px 1fr; gap: 15px; }
     .career-year { font-size: 14px; }
     .career-info h4 { font-size: 14px; line-height: 1.4; margin-bottom: 8px; }
     .career-info p { font-size: 12px; line-height: 1.6; }
     
     .services-grid { grid-template-columns: 1fr; }
     .service-card { padding: 30px 25px; }
-    
-    /* 3. 서비스 태그(버튼) 한 줄에 깔끔하게 담기도록 수정 */
     .service-tags { gap: 6px; margin-top: 20px; }
     .tag { font-size: 11px; padding: 4px 10px; }
     
@@ -672,7 +673,7 @@
     <div class="hero-content">
       <div class="hero-eyebrow">Private Wealth Advisor</div>
       <h1 class="hero-name">한종완<em>.</em></h1>
-      <p class="hero-title">핀사이트 랩스 PB 팀장 · AFPK</p>
+      <p class="hero-title">핀사이트 랩스 Private Banker Team Leader · AFPK</p>
       
       <p class="hero-desc">
         시사코리아 및 뷰어스 [자산관리와 절세] 칼럼니스트이자<br>
@@ -720,7 +721,7 @@
       <ul class="career-list">
         <li class="career-item">
           <span class="career-year">현재</span>
-          <div class="career-info"><h4>핀사이트 랩스 PB 팀장</h4><p>VIP 자산관리 및 종합 재무 컨설팅</p></div>
+          <div class="career-info"><h4>핀사이트 랩스 Private Banker Team Leader</h4><p>VIP 자산관리 및 종합 재무 컨설팅</p></div>
         </li>
         <li class="career-item">
           <span class="career-year">미디어</span>
@@ -817,6 +818,21 @@
   <h2 class="section-title">재무 산책 & <em>인사이트</em></h2>
 
   <div class="articles-grid reveal">
+    <a href="https://youtu.be/kiuO32KSm8A" target="_blank" class="article-card video">
+      <div class="article-thumb">
+        <img src="https://img.youtube.com/vi/kiuO32KSm8A/maxresdefault.jpg" alt="유튜브 퇴직금 영상 썸네일">
+      </div>
+      <div class="article-info">
+        <div class="article-tag">유튜브 · 은퇴준비</div>
+        <h3 class="article-title">퇴직금이 녹는다! 빨리 이것부터 확인하세요!</h3>
+        <p class="article-desc">방치된 퇴직금 45조 원. 원리금 보장형에 갇힌 당신의 퇴직금이 물가상승률을 이기지 못하고 녹아내리고 있습니다. 지금 당장 챙겨야 할 수익률 개선법을 공개합니다.</p>
+        <div class="article-meta">
+          <span>핀사이트랩스 유튜브 · 2026.04.08</span>
+          <span class="read-more">영상 시청 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+    </a>
+
     <a href="https://theviewers.co.kr/View.aspx?No=4016722" target="_blank" class="article-card">
       <div class="article-thumb">
         <img src="thumb_column1.jpg" alt="RIA 계좌 칼럼 썸네일">
@@ -831,24 +847,9 @@
         </div>
       </div>
     </a>
-
-    <a href="https://theviewers.co.kr/View.aspx?No=4001779" target="_blank" class="article-card">
-      <div class="article-thumb">
-        <img src="thumb_column2.jpg" alt="은퇴절세 칼럼 썸네일">
-      </div>
-      <div class="article-info">
-        <div class="article-tag">자산관리와 절세</div>
-        <h3 class="article-title">꼭 챙겨야 할 3가지 은퇴·절세 상품</h3>
-        <p class="article-desc">소득 크레바스를 앞둔 40대의 은퇴 골든타임. 연금계좌 활용부터 ISA 만기 시너지까지, 막연한 불안감을 든든한 노후 자산으로 바꿔줄 필수 절세 세팅법을 공개합니다.</p>
-        <div class="article-meta">
-          <span>뷰어스 · 2026.03.12</span>
-          <span class="read-more">칼럼 읽기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </div>
-    </a>
   </div>
   <div class="section-more reveal">
-    <a href="tips.html">칼럼 전체 보기 <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="tips.html">전체 콘텐츠 보기 <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
 </section>
 
