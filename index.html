@@ -456,8 +456,10 @@
     transform: translateY(-6px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
+  
+  /* ★ 썸네일 잘림 방지 (16:9 비율 유지) ★ */
   .article-thumb {
-    height: 200px;
+    aspect-ratio: 16 / 9; /* 고정 높이 제거하고 16:9 완벽 비율 설정 */
     background: var(--dark-3); 
     display: flex;
     align-items: center;
@@ -469,10 +471,11 @@
   .article-thumb img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover; /* 16:9 비율 안에서 빈틈없이 꽉 차게 */
     transition: transform 0.4s;
   }
   .article-card:hover .article-thumb img { transform: scale(1.05); }
+  
   .article-info {
     padding: 2rem 1.8rem;
     flex: 1;
@@ -655,7 +658,6 @@
       <h1 class="hero-name">한종완<em>.</em></h1>
       <p class="hero-title">핀사이트 랩스 Private Banker Team Leader · AFPK</p>
       
-      <!-- ★ 히로 텍스트 방송 출연 업데이트 ★ -->
       <p class="hero-desc">
         뷰어스 [자산관리와 절세] 칼럼니스트이자<br>
         SBS Biz 및 KBS 라디오가 선택한 경제 전문가.<br>
@@ -704,7 +706,6 @@
           <span class="career-year">현재</span>
           <div class="career-info"><h4>핀사이트 랩스 Private Banker Team Leader</h4><p>VIP 자산관리 및 종합 재무 컨설팅</p></div>
         </li>
-        <!-- ★ 소개 섹션 방송 이력 업데이트 ★ -->
         <li class="career-item">
           <span class="career-year">미디어</span>
           <div class="career-info">
@@ -795,7 +796,6 @@
 
 <div class="divider"></div>
 
-<!-- ★ 메인 화면 하단, 유튜브 생방송 영상으로 전면 교체 ★ -->
 <section class="articles-section" id="tips">
   <div class="section-label">Media & Insights</div>
   <h2 class="section-title">방송 출연 & <em>최신 인사이트</em></h2>
