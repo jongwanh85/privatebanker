@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>재무 산책 & 인사이트 · 한종완 자산관리</title>
+  <title>재무 산책 & 미디어 · 한종완 자산관리</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -150,27 +150,11 @@
       margin-bottom: 0.3rem;
     }
     .channel-handle { font-size: 0.8rem; color: #c0bab0; letter-spacing: 0.05em; }
-    .btn-subscribe {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.7rem 1.8rem;
-      background: var(--gold-light);
-      color: var(--dark-2);
-      font-family: 'Noto Sans KR', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-      transition: background 0.25s, transform 0.2s;
-      white-space: nowrap;
-    }
-    .btn-subscribe:hover { background: #e6c884; transform: translateY(-2px); }
 
     .articles-section {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 3rem 2rem 6rem;
+      padding: 3rem 2rem 4rem;
     }
     .section-eyebrow {
       font-size: 0.75rem;
@@ -213,11 +197,10 @@
       transform: translateY(-6px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
-    .article-card:nth-child(1) { animation-delay: 0.1s; }
-    .article-card:nth-child(2) { animation-delay: 0.2s; }
-
+    
+    /* ★ 썸네일 잘림 방지 (16:9 비율 유지) ★ */
     .article-thumb {
-      height: 200px;
+      aspect-ratio: 16 / 9; /* 고정 높이 제거하고 16:9 완벽 비율 설정 */
       background: var(--dark-3); 
       display: flex;
       align-items: center;
@@ -229,18 +212,10 @@
     .article-thumb img {
       width: 100%;
       height: 100%;
-      object-fit: cover; 
+      object-fit: cover; /* 16:9 비율 안에서 빈틈없이 꽉 차게 */
       transition: transform 0.4s;
     }
-    .article-card.video .article-thumb::after {
-      content: '▶';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 3rem;
-      color: rgba(255,255,255,0.8);
-      text-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
+    .article-card:hover .article-thumb img { transform: scale(1.05); }
 
     .article-info {
       padding: 2rem 1.8rem;
@@ -266,6 +241,7 @@
       transition: color 0.3s;
     }
     .article-card:hover .article-title { color: var(--white); }
+
     .article-desc {
       font-size: 0.95rem;
       color: #b0aba1;
@@ -319,11 +295,7 @@
       box-shadow: 0 4px 20px rgba(212, 175, 90, 0.3);
       transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
     }
-    .btn-gold:hover { 
-      background: #e6c884; 
-      transform: translateY(-2px); 
-      box-shadow: 0 6px 25px rgba(212, 175, 90, 0.5);
-    }
+    .btn-gold:hover { background: #e6c884; transform: translateY(-2px); box-shadow: 0 6px 25px rgba(212, 175, 90, 0.5); }
 
     footer {
       text-align: center;
@@ -336,6 +308,7 @@
 
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
+    /* 모바일 반응형 처리 */
     @media (max-width: 600px) {
       nav { padding: 15px 20px; flex-direction: column; gap: 10px; align-items: center; background: rgba(14,14,14,0.98); }
       .nav-logo { margin-bottom: 5px; }
@@ -351,7 +324,7 @@
       .channel-name { font-size: 16px; }
       .channel-handle { font-size: 12px; }
       
-      .articles-section { padding: 40px 20px 60px; }
+      .articles-section { padding: 40px 20px 20px; }
       .section-title { font-size: 24px; }
       .articles-grid { grid-template-columns: 1fr; gap: 30px; }
       .article-info { padding: 25px 20px; }
@@ -387,64 +360,125 @@
   <div class="channel-inner">
     <div class="channel-icon">JW</div>
     <div class="channel-info">
-      <div class="channel-name">핀사이트랩스(자산관리센터)</div>
-      <div class="channel-handle">@핀사이트랩스자산관리 · 뷰어스 칼럼 · KBS 라디오 패널</div>
+      <div class="channel-name">한종완의 재무 산책</div>
+      <div class="channel-handle">@JW_Financial_Walk · 시사코리아 칼럼 · KBS 라디오 패널</div>
     </div>
-    <a href="https://www.youtube.com/@핀사이트랩스자산관리" target="_blank" class="btn-subscribe">
-      유튜브 구독하기
-    </a>
   </div>
 </div>
 
-<section class="articles-section">
-  <div class="section-eyebrow">Latest Contents</div>
-  <h2 class="section-title">금융 인사이트, <em>직접 확인해보세요</em></h2>
+<!-- 1. 방송 출연 섹션 -->
+<section class="articles-section" style="padding-bottom: 1rem;">
+  <div class="section-eyebrow">Broadcasts</div>
+  <h2 class="section-title">SBS Biz <em>마켓&머니</em> 생방송</h2>
 
   <div class="articles-grid">
-    <a href="https://youtu.be/kiuO32KSm8A" target="_blank" class="article-card video">
+    <!-- 영상 1 -->
+    <a href="https://youtu.be/bs-TDaT6Fcg" target="_blank" class="article-card">
       <div class="article-thumb">
-        <img src="https://img.youtube.com/vi/kiuO32KSm8A/maxresdefault.jpg" alt="유튜브 퇴직금 영상 썸네일">
+        <img src="https://img.youtube.com/vi/bs-TDaT6Fcg/maxresdefault.jpg" alt="해외 ETF 투자 절세 전략">
       </div>
       <div class="article-info">
-        <div class="article-tag">유튜브 · 은퇴준비</div>
-        <h3 class="article-title">퇴직금이 녹는다! 빨리 이것부터 확인하세요!</h3>
-        <p class="article-desc">방치된 퇴직금 45조 원. 원리금 보장형에 갇힌 당신의 퇴직금이 물가상승률을 이기지 못하고 녹아내리고 있습니다. 지금 당장 챙겨야 할 수익률 개선법을 공개합니다.</p>
+        <div class="article-tag">방송 출연 · SBS Biz</div>
+        <h3 class="article-title">해외 ETF 투자 절세 전략 총정리</h3>
+        <p class="article-desc">배당소득세 VS 양도소득세 완벽 비교! 연금 투자자들이라면 꼭 알아야 할 해외 주식 ETF 절세 전략과 건보료 폭탄 피하는 법을 생방송으로 전해드렸습니다.</p>
         <div class="article-meta">
-          <span>핀사이트랩스 유튜브 · 2026.04.08</span>
-          <span class="read-more">영상 시청 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          <span>SBS Biz 뉴스 · 2026.07.22</span>
+          <span class="read-more">영상 보기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </div>
     </a>
 
-    <a href="https://theviewers.co.kr/View.aspx?No=4016722" target="_blank" class="article-card">
+    <!-- 영상 2 -->
+    <a href="https://youtu.be/r6mpWgTVcyk" target="_blank" class="article-card">
       <div class="article-thumb">
-        <img src="thumb_column1.jpg" alt="RIA 계좌 칼럼 썸네일">
+        <img src="https://img.youtube.com/vi/r6mpWgTVcyk/maxresdefault.jpg" alt="퇴직연금 극대화 전략">
       </div>
+      <div class="article-info">
+        <div class="article-tag">방송 출연 · SBS Biz</div>
+        <h3 class="article-title">퇴직연금 '극대화 전략' 핵심 가이드</h3>
+        <p class="article-desc">명예퇴직, 희망퇴직금 어떻게 굴려야 할까? DB형과 DC형의 차이부터 55세 전후 수령 방법, TDF를 활용한 실전 노후 자금 운용 매뉴얼을 공개합니다.</p>
+        <div class="article-meta">
+          <span>SBS Biz 뉴스 · 2026.06.24</span>
+          <span class="read-more">영상 보기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- 2. 뷰어스 칼럼 섹션 -->
+<section class="articles-section" style="padding-top: 2rem;">
+  <div class="section-eyebrow">Latest Columns</div>
+  <h2 class="section-title">뷰어스 <em>[자산관리와 절세]</em></h2>
+
+  <div class="articles-grid">
+    
+    <!-- ▼ 새로운 칼럼 1 (4150394) -->
+    <a href="https://theviewers.co.kr/View.aspx?No=4150394" target="_blank" class="article-card">
+      <div class="article-thumb"><img src="thumb_column3.jpg" alt="새 칼럼 썸네일"></div>
+      <div class="article-info">
+        <div class="article-tag">자산관리와 절세</div>
+        <h3 class="article-title">새로운 칼럼 제목을 입력해주세요</h3>
+        <p class="article-desc">이 부분을 뷰어스 4150394번 기사의 짧은 요약 내용으로 변경해주세요.</p>
+        <div class="article-meta"><span>뷰어스 · 최신 칼럼</span><span class="read-more">칼럼 읽기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+      </div>
+    </a>
+    
+    <!-- ▼ 새로운 칼럼 2 (4120941) -->
+    <a href="https://theviewers.co.kr/View.aspx?No=4120941" target="_blank" class="article-card">
+      <div class="article-thumb"><img src="thumb_column4.jpg" alt="새 칼럼 썸네일"></div>
+      <div class="article-info">
+        <div class="article-tag">자산관리와 절세</div>
+        <h3 class="article-title">새로운 칼럼 제목을 입력해주세요</h3>
+        <p class="article-desc">이 부분을 뷰어스 4120941번 기사의 짧은 요약 내용으로 변경해주세요.</p>
+        <div class="article-meta"><span>뷰어스 · 최신 칼럼</span><span class="read-more">칼럼 읽기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+      </div>
+    </a>
+
+    <!-- ▼ 새로운 칼럼 3 (4106838) -->
+    <a href="https://theviewers.co.kr/View.aspx?No=4106838" target="_blank" class="article-card">
+      <div class="article-thumb"><img src="thumb_column5.jpg" alt="새 칼럼 썸네일"></div>
+      <div class="article-info">
+        <div class="article-tag">자산관리와 절세</div>
+        <h3 class="article-title">새로운 칼럼 제목을 입력해주세요</h3>
+        <p class="article-desc">이 부분을 뷰어스 4106838번 기사의 짧은 요약 내용으로 변경해주세요.</p>
+        <div class="article-meta"><span>뷰어스 · 최신 칼럼</span><span class="read-more">칼럼 읽기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+      </div>
+    </a>
+
+    <!-- ▼ 새로운 칼럼 4 (4084408) -->
+    <a href="https://theviewers.co.kr/View.aspx?No=4084408" target="_blank" class="article-card">
+      <div class="article-thumb"><img src="thumb_column6.jpg" alt="새 칼럼 썸네일"></div>
+      <div class="article-info">
+        <div class="article-tag">자산관리와 절세</div>
+        <h3 class="article-title">새로운 칼럼 제목을 입력해주세요</h3>
+        <p class="article-desc">이 부분을 뷰어스 4084408번 기사의 짧은 요약 내용으로 변경해주세요.</p>
+        <div class="article-meta"><span>뷰어스 · 최신 칼럼</span><span class="read-more">칼럼 읽기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+      </div>
+    </a>
+
+    <!-- 기존 칼럼 1 -->
+    <a href="https://theviewers.co.kr/View.aspx?No=4016722" target="_blank" class="article-card">
+      <div class="article-thumb"><img src="thumb_column1.jpg" alt="RIA 계좌 칼럼 썸네일"></div>
       <div class="article-info">
         <div class="article-tag">자산관리와 절세</div>
         <h3 class="article-title">RIA 계좌, 복귀 전에 점검할 3가지</h3>
-        <p class="article-desc">해외주식을 팔고 국내 주식으로 돌아오면 양도세를 감면해 주는 RIA 계좌. 100% 비과세라는 달콤한 혜택 이면에 숨은 환율 변수와 리스크를 점검해 드립니다.</p>
-        <div class="article-meta">
-          <span>뷰어스 · 2026.03.25</span>
-          <span class="read-more">칼럼 읽기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
+        <p class="article-desc">해외주식을 팔고 국내 주식으로 돌아오면 양도세를 감면해 주는 RIA 계좌. 100% 비과세라는 혜택 이면에 숨은 환율 변수와 리스크를 점검해 드립니다.</p>
+        <div class="article-meta"><span>뷰어스 · 2026.03.25</span><span class="read-more">칼럼 읽기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
       </div>
     </a>
 
+    <!-- 기존 칼럼 2 -->
     <a href="https://theviewers.co.kr/View.aspx?No=4001779" target="_blank" class="article-card">
-      <div class="article-thumb">
-        <img src="thumb_column2.jpg" alt="은퇴절세 칼럼 썸네일">
-      </div>
+      <div class="article-thumb"><img src="thumb_column2.jpg" alt="은퇴절세 칼럼 썸네일"></div>
       <div class="article-info">
         <div class="article-tag">자산관리와 절세</div>
         <h3 class="article-title">꼭 챙겨야 할 3가지 은퇴·절세 상품</h3>
-        <p class="article-desc">소득 크레바스를 앞둔 40대의 은퇴 골든타임. 연금계좌 활용부터 ISA 만기 시너지까지, 막연한 불안감을 든든한 노후 자산으로 바꿔줄 필수 절세 세팅법을 공개합니다.</p>
-        <div class="article-meta">
-          <span>뷰어스 · 2026.03.12</span>
-          <span class="read-more">칼럼 읽기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
+        <p class="article-desc">소득 크레바스를 앞둔 40대의 은퇴 골든타임. 연금계좌 활용부터 ISA 만기 시너지까지, 든든한 노후 자산으로 바꿔줄 필수 절세 세팅법을 공개합니다.</p>
+        <div class="article-meta"><span>뷰어스 · 2026.03.12</span><span class="read-more">칼럼 읽기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
       </div>
     </a>
+
   </div>
 </section>
 
