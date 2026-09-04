@@ -16,6 +16,13 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale"      content="ko_KR">
 <meta property="og:site_name"   content="한종완 자산관리 컨설팅">
+<meta property="kakao:title"       content="한종완 · Private Banker Team Leader">
+<meta property="kakao:description" content="복잡한 금융을 쉽게, 깊이 있는 통찰로 맞춤 재무 로드맵을 설계합니다.">
+<meta property="kakao:image"       content="https://jongwanh85.github.io/privatebanker/og-image.png">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="한종완 · Private Banker Team Leader">
+<meta name="twitter:description" content="복잡한 금융을 쉽게, 깊이 있는 통찰로 맞춤 재무 로드맵을 설계합니다.">
+<meta name="twitter:image"       content="https://jongwanh85.github.io/privatebanker/og-image.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -435,7 +442,7 @@
   .author-name { font-size: 14px; color: var(--white); font-weight: 500; }
   .author-desc { font-size: 12px; color: #c0bab0; margin-top: 4px; }
 
-  /* 미디어 섹션 (방송/유튜브) CSS */
+  /* 미디어 섹션 CSS (썸네일 잘림 완벽 방지 적용) */
   .articles-section { background: var(--dark); }
   .articles-grid {
     display: grid;
@@ -457,9 +464,8 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
   
-  /* ★ 썸네일 잘림 방지 (16:9 비율 유지) ★ */
   .article-thumb {
-    aspect-ratio: 16 / 9; /* 고정 높이 제거하고 16:9 완벽 비율 설정 */
+    aspect-ratio: 16 / 9; /* 16:9 비율 유지 */
     background: var(--dark-3); 
     display: flex;
     align-items: center;
@@ -471,7 +477,7 @@
   .article-thumb img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 16:9 비율 안에서 빈틈없이 꽉 차게 */
+    object-fit: cover; 
     transition: transform 0.4s;
   }
   .article-card:hover .article-thumb img { transform: scale(1.05); }
@@ -796,15 +802,32 @@
 
 <div class="divider"></div>
 
+<!-- ★ 메인 화면 3번째 영상 추가 (최신 방송) ★ -->
 <section class="articles-section" id="tips">
   <div class="section-label">Media & Insights</div>
   <h2 class="section-title">방송 출연 & <em>최신 인사이트</em></h2>
 
   <div class="articles-grid reveal">
-    <!-- 영상 1 -->
+    <!-- 영상 1 (가장 최신) -->
+    <a href="https://youtu.be/HEjWzwF7Ha0" target="_blank" class="article-card">
+      <div class="article-thumb">
+        <img src="https://img.youtube.com/vi/HEjWzwF7Ha0/maxresdefault.jpg" alt="한국 퇴직연금 501조 돌파">
+      </div>
+      <div class="article-info">
+        <div class="article-tag">방송 출연 · SBS Biz</div>
+        <h3 class="article-title">퇴직연금 500조 시대, 노후자금 운용법</h3>
+        <p class="article-desc">새롭게 개편되는 ISA 제도와 양극화된 퇴직연금 수익률의 현주소! 노후 빈곤을 막고 실질적인 현금 흐름을 만드는 타임 버킷 전략을 공개합니다.</p>
+        <div class="article-meta">
+          <span>SBS Biz 뉴스 · 2026.09.02</span>
+          <span class="read-more">영상 보기 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 영상 2 -->
     <a href="https://youtu.be/bs-TDaT6Fcg" target="_blank" class="article-card">
       <div class="article-thumb">
-        <img src="https://img.youtube.com/vi/bs-TDaT6Fcg/maxresdefault.jpg" alt="SBS Biz 방송 출연">
+        <img src="https://img.youtube.com/vi/bs-TDaT6Fcg/maxresdefault.jpg" alt="해외 ETF 투자 절세 전략">
       </div>
       <div class="article-info">
         <div class="article-tag">방송 출연 · SBS Biz</div>
@@ -817,10 +840,10 @@
       </div>
     </a>
 
-    <!-- 영상 2 -->
+    <!-- 영상 3 -->
     <a href="https://youtu.be/r6mpWgTVcyk" target="_blank" class="article-card">
       <div class="article-thumb">
-        <img src="https://img.youtube.com/vi/r6mpWgTVcyk/maxresdefault.jpg" alt="SBS Biz 방송 출연">
+        <img src="https://img.youtube.com/vi/r6mpWgTVcyk/maxresdefault.jpg" alt="퇴직연금 극대화 전략">
       </div>
       <div class="article-info">
         <div class="article-tag">방송 출연 · SBS Biz</div>
